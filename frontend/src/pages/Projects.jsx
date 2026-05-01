@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import API from "../api/axios";
 import { AuthContext } from "../context/AuthContext";
-import { FolderPlus, Folder, Clock } from "lucide-react";
+import { FolderPlus, Folder } from "lucide-react";
 
 const Projects = () => {
   const { user } = useContext(AuthContext);
@@ -39,37 +39,37 @@ const Projects = () => {
       </div>
 
       {user?.role === "Admin" && (
-        <div className="p-6 bg-white border border-gray-200 shadow-sm rounded-xl">
-          <h2 className="flex items-center mb-5 text-lg font-semibold text-gray-800">
+        <div className="p-4 bg-white border border-gray-200 shadow-sm md:p-6 rounded-xl">
+          <h2 className="flex items-center mb-4 text-lg font-semibold text-gray-800 md:mb-5">
             <FolderPlus className="mr-2 text-blue-600" size={20} /> Create New
             Project
           </h2>
           <form
             onSubmit={handleCreateProject}
-            className="flex flex-col gap-4 md:flex-row"
+            className="flex flex-col gap-3 md:flex-row md:gap-4"
           >
             <div className="flex-1">
               <input
                 type="text"
                 placeholder="Project Name"
                 required
-                className="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2.5 md:py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            <div className="flex-[2]">
+            <div className="flex-2">
               <input
                 type="text"
                 placeholder="Short Description"
-                className="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2.5 md:py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
             <button
               type="submit"
-              className="px-6 py-2 text-sm font-medium text-white transition-colors bg-blue-600 rounded-lg hover:bg-blue-700"
+              className="w-full px-6 py-2.5 md:py-2 md:w-auto text-sm font-medium text-white transition-colors bg-blue-600 rounded-lg hover:bg-blue-700"
             >
               Create Project
             </button>
@@ -77,7 +77,7 @@ const Projects = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
         {projects.map((project) => (
           <div
             key={project._id}
@@ -94,7 +94,7 @@ const Projects = () => {
             </p>
             <div className="pt-4 mt-auto border-t border-gray-100">
               <p className="flex items-center text-xs font-medium text-gray-500">
-                <span className="w-6 h-6 mr-2 text-xs font-bold text-blue-700 bg-blue-100 rounded-full flex items-center justify-center">
+                <span className="flex items-center justify-center w-6 h-6 mr-2 text-xs font-bold text-blue-700 bg-blue-100 rounded-full">
                   {project.createdBy?.name?.charAt(0).toUpperCase()}
                 </span>
                 Led by {project.createdBy?.name}
