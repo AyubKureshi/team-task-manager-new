@@ -4,7 +4,9 @@
 Team Task Manager is a full-stack Web Application built with the MERN stack (MongoDB, Express, React, Node.js). It is designed to help teams collaborate effectively by allowing administrators to create projects and assign tasks, while team members can track their assigned work and update progress.
 
 **Live Application:** https://team-task-manager-frontend-production-db60.up.railway.app/
+
 **GitHub Repository:** https://github.com/AyubKureshi/team-task-manager-new.git
+
 **Demo Video:** [Insert your Video URL here]
 
 ---
